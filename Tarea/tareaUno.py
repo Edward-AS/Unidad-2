@@ -1,4 +1,5 @@
 ### 09-10-2024 ###
+from os import system
 
 class TareaUno:
 
@@ -45,7 +46,7 @@ class Menu(TareaUno):
         if nombre in self.nombres:
             indice = self.nombres.index(nombre)
             promedio = self.promedio[indice]
-            print(f"\nAlumno: {nombre} -- Promedio: {promedio}")
+            print(f"\nAlumno: {nombre} -- Promedio: {promedio} -- '{self.status[indice]}'")
         else:
             print(f"\n\t{nombre} no es alumno del grupo")
 
@@ -92,8 +93,13 @@ class Menu(TareaUno):
         print(f"Promedio de la unidad 2: {round(promedio_2, 2)}")
         print(f"Promedio de la unidad 3: {round(promedio_3, 2)}")
 
+    def imprimir_alumnos(self):
+            for i in range(len(self.nombres)):
+                print(f"\nAlumno: {self.nombres[i]}\n\t --Unidad 1: {self.calif_1[i]}\n\t --Unidad 2: {self.calif_2[i]}\n\t --Unidad 3: {self.calif_3[i]}\n\t -Promedio: {self.promedio[i]} - '{self.status[i]}'")
+
     def menu(self):
-        while True: 
+        while True:
+            system("cls") 
             print("\n******MENÚ******")
             print("1) El promedio más bajo")
             print("2) El promedio más alto")
@@ -101,7 +107,8 @@ class Menu(TareaUno):
             print("4) Calificación más baja")
             print("5) Calificación más alta")
             print("6) Promedio de cada Unidad")
-            print("7) Salir")
+            print("7) Imprimir alumnos")
+            print("8) Salir")
             opc = int(input("Seleccione una opción: "))
             match opc:
                 case 1:
@@ -117,6 +124,8 @@ class Menu(TareaUno):
                 case 6:
                     self.prom_califs()
                 case 7:
+                    self.imprimir_alumnos()
+                case 8:
                     print("Saliendo...")
                     break
                 case _:
