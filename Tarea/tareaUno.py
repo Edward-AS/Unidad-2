@@ -18,7 +18,7 @@ class TareaUno:
 
     def validar_estado(self):
         for i in range(len(self.calif_1)):
-            if self.calif_1[i] < 60 or self.calif_2[i] < 60 or self.calif_3[i] < 60:
+            if self.calif_1[i] < 70 or self.calif_2[i] < 70 or self.calif_3[i] < 70:
                 self.status.pop(i)
                 self.status.insert(i, "Reprobado")
 
